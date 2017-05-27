@@ -46,7 +46,7 @@ class Fixed2Free(object):
     def process(self):
         
         #read source
-        with open(self.input_filename, 'rb') as f:
+        with open(self.input_filename, 'r', encoding='utf-8') as f:
             source = f.readlines()
 
         #fix source code
@@ -67,7 +67,7 @@ class Fixed2Free(object):
             source[i] = line
             
         #write new source
-        with open(self.output_filename, 'wb') as f:
+        with open(self.output_filename, 'w', encoding='utf-8') as f:
             for line in source:
                 f.write(line+'\n')
                         

@@ -50,7 +50,7 @@ class Fixed2Free(object):
             source = f.readlines()
 
         #fix source code
-        for i in xrange(len(source)):
+        for i in range(len(source)):
             line = source[i]
             line = self.remove_new_line(line)
             line = self.fix_comment(line)

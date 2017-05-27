@@ -8,19 +8,19 @@ import sys
 import os
 from fortran_tools import Fixed2Free
 import tempfile
-print tempfile.gettempdir()
+print(tempfile.gettempdir())
 
 class Test(unittest.TestCase):
 
     def setUp(self):
         self.path = os.path.abspath(os.path.dirname(__file__))
-        print self.path
+        print(self.path)
 
     def test_outpt2(self):
         
         filenames=['airfol','atmos','auxout','fltcl','outpt2','subryw','supryw']
         
-        print "current directory: ", os.path.abspath(os.path.curdir)
+        print("current directory: ", os.path.abspath(os.path.curdir))
         
         for filename in filenames:
             
@@ -28,7 +28,7 @@ class Test(unittest.TestCase):
             output_path=os.path.join(self.path, 'output', filename+'.f90')
             
                         
-            print "checking file:", input_path
+            print("checking file:", input_path)
             
             Fixed2Free.from_argv(['', input_path, output_path, '--style'])
             
@@ -39,7 +39,7 @@ class Test(unittest.TestCase):
             with open(expected_path, 'rb') as expected_file:
                 expected = expected_file.readlines()
                 
-            for i in xrange(len(expected)):
+            for i in range(len(expected)):
                 if output[i] != expected[i]:
                     raise Exception(output_path+": line " +str(i)+" does not match " + expected_path)
 
